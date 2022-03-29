@@ -39,7 +39,7 @@ function raspi_build_kernel
 	make O=$OUTPUT_PATH KCONFIG_ALLCONFIG=../rpi_config alldefconfig
 	# make O=$OUTPUT_PATH Image modules dtbs -j12
 	# make O=$OUTPUT_PATH install modules_install dtbs_install headers_install
-	make O=$OUTPUT_PATH bindeb-pkg -j16
+	make O=$OUTPUT_PATH bindeb-pkg INSTALL_MOD_STRIP=1 -j16
 	# make O=../pi_kernel_output deb-pkg -j12 
 	# cd $INSTALL_PATH
 	# ls vmlinuz* | xargs chmod +x
